@@ -26,12 +26,6 @@ jobs:
         env:
           APP_KEY: ${{ secrets.APP_KEY }}
 
-      - name: Set up database
-        run: |
-          cp .env.example .env
-          php artisan key:generate
-          php artisan migrate --env=testing
-
       - name: Run tests
         run: php artisan test --env=testing
 
